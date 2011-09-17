@@ -126,7 +126,7 @@ let g:fuf_modesDisable = []
 let g:fuf_ignoreCase = 1
 
 let g:fuf_abbrevMap = {
-      \   '^vim:' : [ '/home/zzzhc/.vim/**/' ],
+      \   '^vim:' : [ '~/.vim/**/' ],
       \ }
 
 " TagList
@@ -161,3 +161,4 @@ if filereadable(expand("~/.vim/.vimrc"))
   source ~/.vim/.vimrc
 endif
 
+" vim: ft=vim
