@@ -2,10 +2,10 @@
 
 ## install
 
-### copy vimrc to ~/.vimrc
+### link vimrc to ~/.vimrc
 
 ``` sh
-cp vimrc ~/.vimrc
+ln -sf `pwd`/vimrc ~/.vimrc
 ```
 
 ### get vundle
@@ -24,3 +24,48 @@ ln -s `pwd`/macros ~/.vim/bundle/vundle/
 ### install vim scripts
 
 Launch `vim`, run `:BundleInstall`
+
+## customize
+
+puts your own vimrc to ~/.vim/.vimrc, ~/.vimrc will source it.
+
+## tips
+
+### notice
+
+*All trailing white spaces will be removed when saving file*
+*Tab is expanded to 2 spaces.*
+*Using :cstag instead of the default :tag behavior*
+*Backup is disabled*
+*autoindent is on*
+*autochdir is on*
+
+### shortcuts
+
+* <F2> toggle NERDTree
+* <F4> toggle TagList
+* <F5> fuzzy find files
+* <F6> find tags
+* <F7> find buffers
+* <F12> grep recursive
+* <ctrl + s> save
+* <ctrl + insert> copy
+* <shift + insert> paste
+* tt open new tab
+* td close current tab
+* tn move to next tab
+* tp move to previous tab
+
+### rails fuf
+
+when you opened a rails project, below abbrs is set for fuzzy find files
+* r: search under project root
+* cc: search under config
+* a: search under app
+* c: search under app/controllers
+* m: search under app/models
+* v: search under app/views
+* h: search under app/helpers
+* s: search under spec
+* p: search under vendor/plugins
+

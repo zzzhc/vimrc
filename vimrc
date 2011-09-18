@@ -53,7 +53,6 @@ autocmd FileType c :set cindent
 autocmd FileType c :set expandtab shiftwidth=2 softtabstop=8 tabstop=8
 autocmd FileType h :set expandtab shiftwidth=2 softtabstop=8 tabstop=8
 autocmd FileType cpp :set cindent
-autocmd FileType java :set tags+=/usr/lib/jvm/java-6-sun/src/tags
 " autocmd FileType ruby :set tags+=~/.rvm/gems/ree-1.8.7-2011.03/gems/tags
 autocmd FileType ruby :set makeprg=ruby\ -c\ % errorformat=%f:%l:\ %m
 autocmd Bufenter *.hs compiler ghc
@@ -74,10 +73,10 @@ set autochdir
 colors desert
 
 " tabs
-map tn :tabnext<CR>
-map tp :tabprev<CR>
 map tt :tabnew<CR>
 map td :tabclose<CR>
+map tn :tabnext<CR>
+map tp :tabprev<CR>
 
 " window
 nmap <silent> <A-j> :res +2<cr>
@@ -105,29 +104,30 @@ if has("gui_running")
   vmap <C-Insert> "+y
 
   " SHIFT-Insert is Paste
+  " visual mode
+  vmap <S-Insert> "+gP
+  " normal mode
   nmap <S-Insert> "+gP
+  " insert mode
+  imap <S-Insert> <ESC>"+gPa
 endif
 
 " copy & paste }}}
 
-" gui
-if has("gui_running")
-  " hide menubar & toolbar
-  set guioptions-=m
-  set guioptions-=T
-  set guifont=Monospace\ 14
-endif
+" make sure backspace key can move from current line
+" http://vim.wikia.com/wiki/Backspace_and_delete_problems
+set backspace=indent,eol,start
 
 nnoremap <silent> <F5> :FufFile<CR>
 nmap <silent> <F6> :FufTag<CR>
 nmap <silent> <F7> :FufBuffer<CR>
-" let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'Bookmark':{}, 'Tag':{}, 'TaggedFile':{}}
+
 let g:fuf_modesDisable = []
 let g:fuf_ignoreCase = 1
 
 let g:fuf_abbrevMap = {
-      \   '^vim:' : [ '~/.vim/**/' ],
-      \ }
+  \'^vim:' : [ '~/.vim/**/' ],
+\}
 
 " TagList
 nmap <silent> <F4> :TlistToggle<CR>
@@ -136,8 +136,8 @@ let Tlist_Use_Right_Window = 1
 let Tlist_Show_One_File = 1
 
 " NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$', '\.rbc']
 nmap <silent> <F2> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc', '\.swp', '\.swo']
 let g:netrw_browse_split = 0
 let g:netrw_liststyle = 3
 
