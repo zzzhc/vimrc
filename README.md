@@ -2,6 +2,13 @@
 
 ## install
 
+### clone vimrc
+
+``` sh
+git clone git://github.com/zzzhc/vimrc.git
+cd vimrc
+```
+
 ### link vimrc to ~/.vimrc
 
 ``` sh
@@ -69,4 +76,8 @@ when you opened a rails project, below abbrs is set for fuzzy find files
 * h: search under app/helpers
 * s: search under spec
 * p: search under vendor/plugins
+
+### snipmate
+
+see [vim-snipmate](https://github.com/garbas/vim-snipmate)
 

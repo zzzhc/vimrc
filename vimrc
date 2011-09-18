@@ -12,7 +12,6 @@ Bundle 'gmarik/vundle'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'The-NERD-tree'
-Bundle 'SuperTab-continued.'
 Bundle 'grep.vim'
 Bundle 'taglist.vim'
 
@@ -28,8 +27,16 @@ Bundle 'The-NERD-Commenter'
 Bundle 'vcscommand.vim'
 Bundle 'Align'
 
+" supertab
+Bundle 'SuperTab-continued.'
+
 " Snippets
-Bundle 'gh:gmarik/snipmate.vim.git'
+" snipmate is out of date, use vim-snipmate
+Bundle 'git://github.com/MarcWeber/vim-addon-mw-utils.git'
+Bundle 'git://github.com/tomtom/tlib_vim.git'
+Bundle 'git://github.com/honza/snipmate-snippets.git'
+Bundle 'git://github.com/garbas/vim-snipmate.git'
+
 " Syntax highlight
 Bundle 'cucumber.zip'
 Bundle 'Markdown'
