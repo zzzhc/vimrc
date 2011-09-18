@@ -42,15 +42,15 @@ puts your own vimrc to ~/.vim/.vimrc, ~/.vimrc will source it.
 
 ### shortcuts
 
-* <F2> toggle NERDTree
-* <F4> toggle TagList
-* <F5> fuzzy find files
-* <F6> find tags
-* <F7> find buffers
-* <F12> grep recursive
-* <ctrl + s> save
-* <ctrl + insert> copy
-* <shift + insert> paste
+* \<F2> toggle NERDTree
+* \<F4> toggle TagList
+* \<F5> fuzzy find files
+* \<F6> find tags
+* \<F7> find buffers
+* \<F12> grep recursive
+* \<Ctrl + s> save
+* \<Ctrl + insert> copy
+* \<Shift + insert> paste
 * tt open new tab
 * td close current tab
 * tn move to next tab
