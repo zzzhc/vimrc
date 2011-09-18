@@ -33,12 +33,12 @@ puts your own vimrc to ~/.vim/.vimrc, ~/.vimrc will source it.
 
 ### notice
 
-*All trailing white spaces will be removed when saving file*
-*Tab is expanded to 2 spaces.*
-*Using :cstag instead of the default :tag behavior*
-*Backup is disabled*
-*autoindent is on*
-*autochdir is on*
+* All trailing white spaces will be removed when saving file
+* Tab is expanded to 2 spaces
+* Using :cstag instead of the default :tag behavior
+* Backup is disabled
+* autoindent is on
+* autochdir is on
 
 ### shortcuts
 
@@ -59,6 +59,7 @@ puts your own vimrc to ~/.vim/.vimrc, ~/.vimrc will source it.
 ### rails fuf
 
 when you opened a rails project, below abbrs is set for fuzzy find files
+
 * r: search under project root
 * cc: search under config
 * a: search under app
