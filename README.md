@@ -79,5 +79,5 @@ when you opened a rails project, below abbrs is set for fuzzy find files
 
 ### snipmate
 
-see [vim-snipmate](https://github.com/garbas/vim-snipmate)
+see [snipmate.vim](https://github.com/msanders/snipmate.vim)
 
