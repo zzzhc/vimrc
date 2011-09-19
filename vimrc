@@ -10,10 +10,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 " required by FuzzyFinder
 Bundle 'L9'
+
 Bundle 'FuzzyFinder'
 Bundle 'The-NERD-tree'
 Bundle 'grep.vim'
 Bundle 'taglist.vim'
+Bundle 'cscope_macros.vim'
 
 " Programming
 Bundle 'a.vim'
@@ -22,7 +24,7 @@ Bundle 'matchit.zip'
 Bundle 'anzaika/go.vim'
 Bundle 'OOP-javascript-indentation'
 Bundle 'jQuery'
-Bundle 'rails.vim'
+Bundle 'tpope/vim-rails'
 Bundle 'The-NERD-Commenter'
 Bundle 'vcscommand.vim'
 Bundle 'Align'
@@ -97,12 +99,13 @@ nmap <silent> <A-l> :vert res +2<cr>
 
 " compress multi-empty lines to one
 nmap <C-g>j :silent! g/^$/,/./-j<cr>
+" delete blank lines
 nmap <C-g>d :silent! g/^$/d<cr>
 
 " Use CTRL-S for saving, also in Insert mode
-noremap <C-S>    :update<CR>
-vnoremap <C-S>    <C-C>:update<CR>
-inoremap <C-S>    <C-O>:update<CR>
+noremap <C-S>    :w<CR>
+vnoremap <C-S>    <C-C>:w<CR>
+inoremap <C-S>    <C-O>:w<CR>
 
 " copy & paste {{{
 
@@ -128,9 +131,9 @@ endif
 " http://vim.wikia.com/wiki/Backspace_and_delete_problems
 set backspace=indent,eol,start
 
-nnoremap <silent> <F5> :FufFile<CR>
 nmap <silent> <F6> :FufTag<CR>
 nmap <silent> <F7> :FufBuffer<CR>
+noremap <silent> <F8> :FufFile<CR>
 
 let g:fuf_modesDisable = []
 let g:fuf_ignoreCase = 1
@@ -165,7 +168,13 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-nnoremap <silent> <F12> :Rgrep<CR>
+nnoremap <silent> <F3> :Rgrep -i --exclude=*.svn-base --exclude=*tags --exclude=*.log --exclude=*.swp --exclude=*.swo --exclude=*.tmp<CR>
+
+nmap <F5> :VCSBlame<CR>
+
+" NERD commenter
+vmap cm <leader>c<Space>gv
+nmap cm <leader>c<Space>
 
 if filereadable(expand("~/.vim/.vimrc"))
   source ~/.vim/.vimrc

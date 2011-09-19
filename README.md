@@ -50,11 +50,12 @@ puts your own vimrc to ~/.vim/.vimrc, ~/.vimrc will source it.
 ### shortcuts
 
 * \<F2> toggle NERDTree
+* \<F3> grep recursive
 * \<F4> toggle TagList
-* \<F5> fuzzy find files
+* \<F5> VCSBlame
 * \<F6> find tags
 * \<F7> find buffers
-* \<F12> grep recursive
+* \<F8> find files
 * \<Ctrl + s> save
 * \<Ctrl + insert> copy
 * \<Shift + insert> paste
@@ -65,7 +66,7 @@ puts your own vimrc to ~/.vim/.vimrc, ~/.vimrc will source it.
 
 ### rails fuf
 
-when you opened a rails project, below abbrs is set for fuzzy find files
+when you open a rails project, below abbrs is set for fuzzy find files
 
 * r: search under project root
 * cc: search under config
@@ -74,6 +75,8 @@ when you opened a rails project, below abbrs is set for fuzzy find files
 * m: search under app/models
 * v: search under app/views
 * h: search under app/helpers
+* j: search under public/javascripts and app/assets/javascripts
+* ss: search under public/stylesheets and app/assets/stylesheets
 * s: search under spec
 * p: search under vendor/plugins
 
