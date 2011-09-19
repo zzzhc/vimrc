@@ -31,11 +31,14 @@ Bundle 'Align'
 Bundle 'SuperTab-continued.'
 
 " Snippets
-" snipmate is out of date, use vim-snipmate
-Bundle 'git://github.com/MarcWeber/vim-addon-mw-utils.git'
-Bundle 'git://github.com/tomtom/tlib_vim.git'
-Bundle 'git://github.com/honza/snipmate-snippets.git'
-Bundle 'git://github.com/garbas/vim-snipmate.git'
+"
+"Bundle 'git://github.com/MarcWeber/vim-addon-mw-utils.git'
+"Bundle 'git://github.com/tomtom/tlib_vim.git'
+"Bundle 'honza/snipmate-snippets'
+"Bundle 'git://github.com/garbas/vim-snipmate.git'
+"garbas/vim-snipmate can't work well with supertab
+
+Bundle 'msanders/snipmate.vim'
 
 " Syntax highlight
 Bundle 'cucumber.zip'
