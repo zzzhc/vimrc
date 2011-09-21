@@ -111,18 +111,18 @@ inoremap <C-S>    <C-O>:w<CR>
 
 if has("gui_running")
   " CTRL-x is Cut
-  vmap <C-x> "+x
+  vnoremap <C-x> "+x
 
   " CTRL-Insert is Copy
-  vmap <C-Insert> "+y
+  vnoremap <C-Insert> "+y
 
   " SHIFT-Insert is Paste
   " visual mode
-  vmap <S-Insert> "+gP
+  vnoremap <S-Insert> "+gP
   " normal mode
-  nmap <S-Insert> "+gP
+  nnoremap <S-Insert> "+gP
   " insert mode
-  imap <S-Insert> <ESC>"+gPa
+  inoremap <S-Insert> <ESC>"+pa
 endif
 
 " copy & paste }}}
@@ -175,6 +175,9 @@ nmap <F5> :VCSBlame<CR>
 " NERD commenter
 vmap cm <leader>c<Space>gv
 nmap cm <leader>c<Space>
+
+" vim-rails
+let g:rails_ctags_arguments = "--languages=-javascript --exclude=tmp --exclude=.svn --exclude=.git --exclude=*.sql"
 
 if filereadable(expand("~/.vim/.vimrc"))
   source ~/.vim/.vimrc
