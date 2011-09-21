@@ -114,15 +114,20 @@ if has("gui_running")
   vnoremap <C-x> "+x
 
   " CTRL-Insert is Copy
-  vnoremap <C-Insert> "+y
-
   " SHIFT-Insert is Paste
+
   " visual mode
+  vnoremap <C-Insert> "+y
   vnoremap <S-Insert> "+gP
+
   " normal mode
   nnoremap <S-Insert> "+gP
   " insert mode
   inoremap <S-Insert> <ESC>"+pa
+
+  " command line mode, :help cmdline-editing
+  cnoremap <C-Insert> <C-Y>
+  cnoremap <S-Insert> <C-R>+
 endif
 
 " copy & paste }}}
