@@ -10,12 +10,17 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 " required by FuzzyFinder
 Bundle 'L9'
-
 Bundle 'FuzzyFinder'
+
 Bundle 'The-NERD-tree'
-Bundle 'grep.vim'
+" Bundle 'grep.vim'
+Bundle 'mileszs/ack.vim'
 Bundle 'taglist.vim'
 Bundle 'cscope_macros.vim'
+
+" Bundle 'Conque-Shell'
+Bundle 'lrvick/Conque-Shell'
+Bundle 'sessionman.vim'
 
 " Programming
 Bundle 'a.vim'
@@ -24,13 +29,23 @@ Bundle 'matchit.zip'
 Bundle 'anzaika/go.vim'
 Bundle 'OOP-javascript-indentation'
 Bundle 'jQuery'
+Bundle 'vim-coffee-script'
 Bundle 'tpope/vim-rails'
-Bundle 'The-NERD-Commenter'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-abolish'
+Bundle 'railscasts'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'vcscommand.vim'
 Bundle 'Align'
+Bundle 'greyblake/vim-preview'
 
 " supertab
-Bundle 'SuperTab-continued.'
+Bundle 'ervandew/supertab'
+" Bundle 'SuperTab-continued.'
 
 " Snippets
 "
@@ -45,6 +60,8 @@ Bundle 'msanders/snipmate.vim'
 " Syntax highlight
 Bundle 'cucumber.zip'
 Bundle 'Markdown'
+Bundle 'tangledhelix/vim-octopress'
+autocmd BufNewFile,BufRead *.markdown setfiletype octopress
 Bundle 'vim-less'
 
 autocmd BufNewFile,BufRead *.less setf less
@@ -82,7 +99,8 @@ set laststatus=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set autoindent
 set autochdir
-colors desert
+" colors desert
+colors railscasts
 
 " tabs
 map tt :tabnew<CR>
@@ -136,12 +154,18 @@ endif
 " http://vim.wikia.com/wiki/Backspace_and_delete_problems
 set backspace=indent,eol,start
 
-nmap <silent> <F6> :FufTag<CR>
-nmap <silent> <F7> :FufBuffer<CR>
-noremap <silent> <F8> :FufFile<CR>
+map <silent> <F6> :FufTag<CR>
+map <silent> <F7> :FufBuffer<CR>
+map <silent> <F8> :FufFile<CR>
+
+nnoremap <silent> sb :FufBuffer<CR>
+nnoremap <silent> sf :FufFile<CR>
+nnoremap <silent> st :FufTag<CR>
+nnoremap <silent> sm :FufMruFile<CR>
 
 let g:fuf_modesDisable = []
 let g:fuf_ignoreCase = 1
+let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|swo)$|(^|[/\\])\.(CVS|svn|hg|git|bzr)($|[/\\])'
 
 let g:fuf_abbrevMap = {
   \'^vim:' : [ '~/.vim/**/' ],
@@ -171,11 +195,11 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+" autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-nnoremap <silent> <F3> :Rgrep -i --exclude=*.svn-base --exclude=*tags --exclude=*.log --exclude=*.swp --exclude=*.swo --exclude=*.tmp<CR>
+nnoremap <silent> <F3> :Ack <CR>
 
-nmap <F5> :VCSBlame<CR>
+map <F5> :VCSBlame<CR>
 
 " NERD commenter
 vmap cm <leader>c<Space>gv
