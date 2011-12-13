@@ -15,6 +15,9 @@ Bundle 'FuzzyFinder'
 Bundle 'The-NERD-tree'
 " Bundle 'grep.vim'
 Bundle 'mileszs/ack.vim'
+
+set grepprg=ack\ -a
+
 Bundle 'taglist.vim'
 Bundle 'cscope_macros.vim'
 
@@ -37,6 +40,7 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-liquid'
 Bundle 'railscasts'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vcscommand.vim'
@@ -59,9 +63,9 @@ Bundle 'msanders/snipmate.vim'
 
 " Syntax highlight
 Bundle 'cucumber.zip'
-Bundle 'Markdown'
+" Bundle 'Markdown'
 Bundle 'tangledhelix/vim-octopress'
-autocmd BufNewFile,BufRead *.markdown setfiletype octopress
+autocmd BufNewFile,BufRead *.markdown setf octopress
 Bundle 'vim-less'
 
 autocmd BufNewFile,BufRead *.less setf less
