@@ -16,7 +16,7 @@ Bundle 'The-NERD-tree'
 " Bundle 'grep.vim'
 Bundle 'mileszs/ack.vim'
 
-set grepprg=ack\ -a
+set grepprg=ack
 
 Bundle 'taglist.vim'
 Bundle 'cscope_macros.vim'
@@ -51,6 +51,9 @@ Bundle 'greyblake/vim-preview'
 Bundle 'ervandew/supertab'
 " Bundle 'SuperTab-continued.'
 
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
+
 " Snippets
 "
 "Bundle 'git://github.com/MarcWeber/vim-addon-mw-utils.git'
@@ -67,11 +70,9 @@ Bundle 'cucumber.zip'
 Bundle 'tangledhelix/vim-octopress'
 autocmd BufNewFile,BufRead *.markdown setf octopress
 Bundle 'vim-less'
+Bundle 'chaquotay/ftl-vim-syntax'
+autocmd BufNewFile,BufRead *.ftl setf html.ftl
 
-autocmd BufNewFile,BufRead *.less setf less
-autocmd BufNewFile,BufRead *.feature setf cucumber
-
-set tags=./tags
 set ffs=unix,dos
 set history=400
 
@@ -86,15 +87,14 @@ autocmd FileType c :set cindent
 autocmd FileType c :set expandtab shiftwidth=2 softtabstop=8 tabstop=8
 autocmd FileType h :set expandtab shiftwidth=2 softtabstop=8 tabstop=8
 autocmd FileType cpp :set cindent
-" autocmd FileType ruby :set tags+=~/.rvm/gems/ree-1.8.7-2011.03/gems/tags
 autocmd FileType ruby :set makeprg=ruby\ -c\ % errorformat=%f:%l:\ %m
 autocmd Bufenter *.hs compiler ghc
 
 " set cscope tag search
 set cst
 set incsearch
-set nobackup
-set number
+" set nobackup
+" set number
 set ruler
 set showcmd
 " set nohls
@@ -102,7 +102,9 @@ syntax on
 set laststatus=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set autoindent
-set autochdir
+set ignorecase
+set smartcase
+" set autochdir
 " colors desert
 colors railscasts
 
@@ -158,9 +160,11 @@ endif
 " http://vim.wikia.com/wiki/Backspace_and_delete_problems
 set backspace=indent,eol,start
 
+let g:SuperTabNoCompleteAfter = ['\s', ',', ':', '"', '#']
+
 map <silent> <F6> :FufTag<CR>
 map <silent> <F7> :FufBuffer<CR>
-map <silent> <F8> :FufFile<CR>
+map! <silent> <F8> :FufFile<CR>
 
 nnoremap <silent> sb :FufBuffer<CR>
 nnoremap <silent> sf :FufFile<CR>
@@ -181,6 +185,10 @@ let Tlist_Use_Right_Window = 1
 " Displaying tags for only one file
 let Tlist_Show_One_File = 1
 
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+nnoremap <silent> <Leader>t :CtrlP<CR>
+
 " NERDTree
 nmap <silent> <F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc', '\.swp', '\.swo']
@@ -200,8 +208,9 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 " autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+nmap <Leader>sw :call <SID>StripTrailingWhitespaces()<CR>
 
-nnoremap <silent> <F3> :Ack <CR>
+nnoremap <silent> <F3> :Ack<CR>
 
 map <F5> :VCSBlame<CR>
 
