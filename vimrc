@@ -33,7 +33,7 @@ Bundle 'anzaika/go.vim'
 Bundle 'OOP-javascript-indentation'
 Bundle 'jQuery'
 Bundle 'vim-coffee-script'
-Bundle 'tpope/vim-rails'
+Bundle 'zzzhc/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-haml'
@@ -46,23 +46,16 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'vcscommand.vim'
 Bundle 'Align'
 Bundle 'greyblake/vim-preview'
+Bundle 'mattn/zencoding-vim'
 
 " supertab
 Bundle 'ervandew/supertab'
-" Bundle 'SuperTab-continued.'
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 
 " Snippets
-"
-"Bundle 'git://github.com/MarcWeber/vim-addon-mw-utils.git'
-"Bundle 'git://github.com/tomtom/tlib_vim.git'
-"Bundle 'honza/snipmate-snippets'
-"Bundle 'git://github.com/garbas/vim-snipmate.git'
-"garbas/vim-snipmate can't work well with supertab
-
-Bundle 'msanders/snipmate.vim'
+Bundle 'ervandew/snipmate.vim'
 
 " Syntax highlight
 Bundle 'cucumber.zip'
@@ -160,7 +153,7 @@ endif
 " http://vim.wikia.com/wiki/Backspace_and_delete_problems
 set backspace=indent,eol,start
 
-let g:SuperTabNoCompleteAfter = ['\s', ',', ':', '"', '#']
+let g:SuperTabNoCompleteAfter = ['^', '\s', ',', ':', '"', '#']
 
 map <silent> <F6> :FufTag<CR>
 map <silent> <F7> :FufBuffer<CR>
@@ -207,7 +200,7 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-" autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 nmap <Leader>sw :call <SID>StripTrailingWhitespaces()<CR>
 
 nnoremap <silent> <F3> :Ack<CR>
@@ -220,6 +213,11 @@ nmap cm <leader>c<Space>
 
 " vim-rails
 let g:rails_ctags_arguments = "--languages=-javascript --exclude=tmp --exclude=.svn --exclude=.git --exclude=*.sql"
+
+" zen-coding
+let g:user_zen_settings = {
+  \'indentation' : '  ',
+\}
 
 if filereadable(expand("~/.vim/.vimrc"))
   source ~/.vim/.vimrc
