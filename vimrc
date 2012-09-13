@@ -12,8 +12,7 @@ Bundle 'gmarik/vundle'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 
-Bundle 'The-NERD-tree'
-" Bundle 'grep.vim'
+Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
 
 set grepprg=ack
@@ -41,11 +40,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-liquid'
-Bundle 'railscasts'
+Bundle 'jpo/vim-railscasts-theme'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vcscommand.vim'
 Bundle 'Align'
-Bundle 'greyblake/vim-preview'
 Bundle 'mattn/zencoding-vim'
 
 " supertab
@@ -106,6 +104,20 @@ map tt :tabnew<CR>
 map td :tabclose<CR>
 map tn :tabnext<CR>
 map tp :tabprev<CR>
+
+if has("mac") || has("macunix")
+  map <D-t> :tabnew<CR>
+  map <D-1> 1gt
+  map <D-2> 2gt
+  map <D-3> 3gt
+  map <D-4> 4gt
+  map <D-5> 5gt
+  map <D-6> 6gt
+  map <D-7> 7gt
+  map <D-8> 8gt
+  map <D-9> 9gt
+  map <D-0> 10gt
+endif
 
 " window
 nmap <silent> <A-j> :res +2<cr>
@@ -181,6 +193,7 @@ let Tlist_Show_One_File = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 nnoremap <silent> <Leader>t :CtrlP<CR>
+nnoremap <silent> <Leader>f :CtrlPClearCache<CR>
 
 " NERDTree
 nmap <silent> <F2> :NERDTreeToggle<CR>
@@ -210,6 +223,13 @@ map <F5> :VCSBlame<CR>
 " NERD commenter
 vmap cm <leader>c<Space>gv
 nmap cm <leader>c<Space>
+
+" Align
+vmap ah :Align =><CR>
+vmap ae :Align =<CR>
+
+" switch current window's directory to current file's dir
+nmap \cd :lcd %:p:h<CR>
 
 " vim-rails
 let g:rails_ctags_arguments = "--languages=-javascript --exclude=tmp --exclude=.svn --exclude=.git --exclude=*.sql"
