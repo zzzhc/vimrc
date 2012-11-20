@@ -158,6 +158,10 @@ if has("gui_running")
   " command line mode, :help cmdline-editing
   cnoremap <C-Insert> <C-Y>
   cnoremap <S-Insert> <C-R>+
+
+  " https://code.google.com/p/macvim/issues/detail?id=342
+  " turn off ri tooltips
+  set noballooneval
 endif
 
 " copy & paste }}}
@@ -234,10 +238,6 @@ nmap \cd :lcd %:p:h<CR>
 
 " vim-rails
 let g:rails_ctags_arguments = "--languages=-javascript --exclude=tmp --exclude=.svn --exclude=.git --exclude=*.sql"
-
-" https://code.google.com/p/macvim/issues/detail?id=342
-" turn off ri tooltips
-set noballooneval
 
 " zen-coding
 let g:user_zen_settings = {
