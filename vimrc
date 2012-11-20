@@ -158,10 +158,6 @@ if has("gui_running")
   " command line mode, :help cmdline-editing
   cnoremap <C-Insert> <C-Y>
   cnoremap <S-Insert> <C-R>+
-
-  " https://code.google.com/p/macvim/issues/detail?id=342
-  " turn off ri tooltips
-  set noballooneval
 endif
 
 " copy & paste }}}
@@ -243,6 +239,12 @@ let g:rails_ctags_arguments = "--languages=-javascript --exclude=tmp --exclude=.
 let g:user_zen_settings = {
   \'indentation' : '  ',
 \}
+
+if has("gui_running")
+  " https://code.google.com/p/macvim/issues/detail?id=342
+  " turn off ri tooltips
+  set noballooneval
+endif
 
 if filereadable(expand("~/.vim/.vimrc"))
   source ~/.vim/.vimrc
