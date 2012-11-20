@@ -78,6 +78,7 @@ autocmd FileType c :set cindent
 autocmd FileType c :set expandtab shiftwidth=2 softtabstop=8 tabstop=8
 autocmd FileType h :set expandtab shiftwidth=2 softtabstop=8 tabstop=8
 autocmd FileType cpp :set cindent
+autocmd FileType python :set expandtab shiftwidth=4 softtabstop=4 tabstop=4
 autocmd FileType ruby :set makeprg=ruby\ -c\ % errorformat=%f:%l:\ %m
 autocmd Bufenter *.hs compiler ghc
 
@@ -233,6 +234,10 @@ nmap \cd :lcd %:p:h<CR>
 
 " vim-rails
 let g:rails_ctags_arguments = "--languages=-javascript --exclude=tmp --exclude=.svn --exclude=.git --exclude=*.sql"
+
+" https://code.google.com/p/macvim/issues/detail?id=342
+" turn off ri tooltips
+set noballooneval
 
 " zen-coding
 let g:user_zen_settings = {
