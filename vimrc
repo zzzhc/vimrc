@@ -244,6 +244,7 @@ if has("gui_running")
   " https://code.google.com/p/macvim/issues/detail?id=342
   " turn off ri tooltips
   set noballooneval
+  let g:syntastic_enable_balloons = 0
 endif
 
 if filereadable(expand("~/.vim/.vimrc"))
