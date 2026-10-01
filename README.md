@@ -1,3 +1,5 @@
+
+
 # zzzhc's vimrc for rails developer
 
 ## install
@@ -89,8 +91,8 @@ puts your own vimrc to ~/.vim/.vimrc, ~/.vimrc will source it.
 * [mac only] `command + number` switch tab
 
 ### align code
-* in visual mode, `ah` aligh code by =>
-* in visual mode, `ae` aligh code by =
+* in visual mode, `ah` align code by =>
+* in visual mode, `ae` align code by =
 
 
 ### rails fuf
@@ -108,4 +110,3 @@ when you open a rails project, below abbrs is set for fuzzy find files
 * `ss`: search under public/stylesheets and app/assets/stylesheets
 * `s`: search under spec
 * `p`: search under vendor/plugins
-
